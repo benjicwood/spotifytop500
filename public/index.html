@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Example of the Implicit Grant flow with Spotify</title>
+    <title>Spotify Top 500</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style type="text/css">
       #login, #loggedin {
@@ -113,11 +113,12 @@
           localStorage.removeItem(stateKey);
           if (access_token) {
             $.ajax({
-                url: 'https://api.spotify.com/v1/me',
+                url: 'https://api.spotify.com/v1/artists/43ZHCT0cAZBISjO8DG9PnE/related-artists',
                 headers: {
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
+                  console.log(response)
                   userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
                   $('#login').hide();
